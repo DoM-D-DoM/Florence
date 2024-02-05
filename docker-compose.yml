@@ -3,27 +3,32 @@ version: '3'
 services:
   # Step 1: Avvia un container per scaricare e buildare il progetto Spring Boot
   builder:
-    image: eclipse-temurin:11
+    image: maven:3.9.6-eclipse-temurin-11
     volumes:
-      - ./FlorenceUser:/app
+      - ./Florence:/app
     command: >
       bash -c "
-        git clone https://github.com/Domenico/FlorenceUser.git /app &&
-        cd /app &&
+        rm -rf /app/*
+        git clone https://github.com/DoM-D-DoM/Florence.git /app &&
+        cd /app && chmod +x mvnw &&
         ./mvnw clean install
       "
 
   # Step 2: Avvia un secondo container con MariaDB
   database:
     image: mariadb
+    networks:
+      - mynetwork
     environment:
-      MYSQL_ROOT_PASSWORD: ''
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: 'yes'
 
   # Step 3: Avvia un terzo container per l'applicazione Spring Boot
   app:
-    image: eclipse-temurin:11
+    image: maven:3.9.6-eclipse-temurin-11
+    networks:
+      - mynetwork
     volumes:
-      - ./FlorenceUser:/app
+      - ./Florence:/app
     depends_on:
       - builder
       - database
@@ -33,11 +38,11 @@ services:
       SPRING_DATASOURCE_PASSWORD: ''
     command: >
       bash -c "
+        while [ ! -f /app/.build_completed ]; do sleep 1; done &&
         cd /app &&
-        java -jar target/florence.jar
+        java -jar target/tuo-progetto.jar
       "
 
 networks:
-  default:
-    external:
-      name: bridge
+  mynetwork:
+    driver: bridge
