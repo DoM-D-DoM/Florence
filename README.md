@@ -1,7 +1,7 @@
 # Applicazione Dockerizzata User Florence
 
 ## Descrizione
-Questa applicazione Dockerizzata fornisce una serie di servizi REST per la gestione dei dati attraverso diverse operazioni, tra cui GET, ADD, UPDATE, DELETE e SEARCH (per nome/cognome o ID) 
+Questa applicazione Dockerizzata fornisce una serie di servizi REST per la gestione dei dati attraverso diverse operazioni, tra cui GET, ADD, UPDATE, DELETE
 e caricamento di file CSV. L'applicazione è progettata per essere containerizzata usando Docker per una facile distribuzione e scalabilità.
 
 ## Indice
@@ -22,7 +22,7 @@ Per eseguire questa applicazione Dockerizzata, assicurati che Docker e Docker Co
 
 2. Entra nella directory dell'app:
    ```bash
-   cd user-florence
+   cd Florence
    ```
 
 3. Esegui il comando Docker Compose per avviare l'applicazione:
