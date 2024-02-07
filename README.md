@@ -10,7 +10,7 @@ e caricamento di file CSV. L'applicazione è progettata per essere containerizza
 - [Endpoint API](#endpoint-api)
 - [Variabili d'Ambiente](#variabili-dambiente)
 - [Docker Compose](#docker-compose)
-- [Goditi l'App!](#goditi-lapp)
+- [ENJOY!](#enjoy)
 
 ## Installazione
 Per eseguire questa applicazione Dockerizzata, assicurati che Docker e Docker Compose siano installati sul tuo sistema. Segui i passaggi seguenti:
