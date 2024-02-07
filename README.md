@@ -10,8 +10,6 @@ e caricamento di file CSV. L'applicazione è progettata per essere containerizza
 - [Endpoint API](#endpoint-api)
 - [Variabili d'Ambiente](#variabili-dambiente)
 - [Docker Compose](#docker-compose)
-- [Contributi](#contributi)
-- [Licenza](#licenza)
 - [Goditi l'App!](#goditi-lapp)
 
 ## Installazione
